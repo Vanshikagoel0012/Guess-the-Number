@@ -1,0 +1,30 @@
+// Generate a random number between 1 and 100
+const secretNumber = Math.floor(Math.random() * 100) + 1;
+
+// Prompt the user to guess the number
+let guess = prompt("Guess a number between 1 and 100:");
+
+// Keep track of the number of guesses
+let numGuesses = 1;
+
+// Repeat until the user guesses the number
+while (parseInt(guess) !== secretNumber) {
+  if (guess === null) {
+    break;
+  }
+  
+  if (parseInt(guess) < secretNumber) {
+    guess = prompt("Too low! Guess again:");
+  } else {
+    guess = prompt("Too high! Guess again:");
+  }
+  
+  numGuesses++;
+}
+
+// Congratulate the user and display the number of guesses
+if (guess === null) {
+  alert("You gave up! The number was " + secretNumber + ".");
+} else {
+  alert("Congratulations, you guessed the number " + secretNumber + " in " + numGuesses + " guesses!");
+}
